@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Dev2studio_ModuleList::menu"
+             title="Extensions" module="Dev2studio_ModuleList"
+             sortOrder="10"
+             action="modulelist"
+             resource="Dev2studio_ModuleList::content"
+        />
+    </menu>
+</config>

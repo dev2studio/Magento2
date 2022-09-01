@@ -1,0 +1,52 @@
+<script>
+
+    require(['jquery', 'mage/backend/tabs'], function ($) {
+        $(function () {
+            $('#tabs').tabs({
+                active: 'theme_tabs_general_section',
+                destination: '#edit_form',
+                shadowTabs: [],
+                tabsBlockPrefix: 'theme_tabs_',
+                tabIdArgument: 'active_tab'
+            });
+        });
+    });
+</script>
+
+
+<div id="tabs" class="admin__page-nav">
+    <ul class="tabs admin__page-nav-items">
+        <?php foreach ($block->sayHello() as $_key => $_data): ?>
+            <li class="admin__page-nav-item " data-role="title">
+                <a href="#tabs-<?php echo $_key ?>" class="admin__page-nav-link ">
+                    <?= $_key; ?>
+                </a></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php foreach ($block->sayHello() as $_key => $_data): ?>
+        <div id="tabs-<?php echo $_key ?>" data-role="content">
+            <h1><?php echo $_key ?></h1>
+
+            <table class="data-table">
+
+            <?php foreach ($_data as $key => $item): ?>
+                <?php if($item!==''): ?>
+                    <tr>
+                        <td><?php echo $item;?></td>
+                        <td>
+                            <a  class="ui-button ui-widget ui-corner-all"
+                                href="<?= $this->getUrl('extens') ?><?php echo ($_key=='active'?'disabled':'active');?>/<?php echo $item;?>">
+                                <?php echo ($_key=='active'?'Disabled':'Active');?>
+
+                            </a>
+                         </td>
+                    </tr>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </table>
+
+        </div>
+    <?php endforeach; ?>
+</div>
+
+
